@@ -6,7 +6,7 @@ interface Creator {
   name: string;
   description: string;
   url?: string;
-  imgUrl?: string;
+  imgURL?: string;
 }
 
 export default function AllCreators() {
@@ -70,7 +70,7 @@ export default function AllCreators() {
                         {creators.map((creator) => (
                             <Card
                                 key={creator.id}
-                                imageUrl={creator.imgUrl}
+                                imgURL={creator.imgURL}
                                 name={creator.name}
                                 url={creator.url}
                                 description={creator.description}

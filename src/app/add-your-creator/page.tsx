@@ -92,7 +92,7 @@ export default function AddCreators() {
                     </div>
 
                     <div>
-                        <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor ="description" className="block text-sm font-medium text-gray-700 mb-1">
                             Description
                         </label>
                         <textarea 
