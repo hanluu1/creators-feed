@@ -5,9 +5,9 @@ interface CardProps {
   url?: string;
 }
 
-export default function Card({ name, url, description, imageUrl}: CardProps) {
+export default function Card({ name, url, description, imageUrl}: CardProps){
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
+    <div className="flex flex-col max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300">
       {imageUrl && (
         <img 
           className="w-full h-48 object-cover" 
@@ -15,13 +15,16 @@ export default function Card({ name, url, description, imageUrl}: CardProps) {
           alt={name} 
         />
       )}
-      <div className="px-6 py-4">
-        <h3 className="font-bold text-xl mb-2 text-gray-800">
+      <div className="flex flex-col justify-center items-center px-6 py-4">
+        <div className="font-bold text-xl mb-2 text-gray-800">
+          {name}
+        </div>
+        <div className="font-bold text-lg mb-2 text-gray-800">
           {url}
-        </h3>
-        <p className="text-gray-600 text-base leading-relaxed">
+        </div>
+        <div className="text-sm text-gray-600 leading-relaxed">
           {description}
-        </p>
+        </div>
       </div>
       
     </div>

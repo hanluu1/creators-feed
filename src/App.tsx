@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import AddCreators from './app/add-your-creator/page'
+import AllCreators from './app/your-creator-list/page'
 
 function App() {
   return (
@@ -23,17 +24,26 @@ function App() {
                 Discover amazing creators and add your own!
               </p>
               <div className="flex justify-center">
-                <Link 
-                to="/add-your-creator" 
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200"
-                >
-                Add Your Creator
-              </Link>
+                <div className='flex flex-row justify-center'>
+                  <Link 
+                  to="/your-creator-list" 
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200 mr-4"
+                  >
+                    Your Creator List
+                  </Link>
+                  <Link 
+                  to="/add-your-creator" 
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200"
+                  >
+                  Add Your Creator
+                  </Link>
+              </div>
               </div>
             </div>
           </div>
         } />
         <Route path="/add-your-creator" element={<AddCreators />} />
+        <Route path="/your-creator-list" element={<AllCreators />} />
       </Routes>
     </>
   )
