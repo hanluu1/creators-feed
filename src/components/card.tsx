@@ -7,15 +7,17 @@ interface CardProps {
 }
 
 export default function Card({ name, url, description, imgURL}: CardProps){
-  // Debug: Log what we're receiving
-  console.log('Card props:', { name, imgURL });
+  const truncateDescription = (text: string, maxLength: number = 120) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength).trim() + '...';
+  };
 
   return (
     <div 
-      className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+      className="w-80 h-96 rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col"
     >
       {imgURL && (
-        <div className="w-full h-48 bg-gray-200 overflow-hidden">
+        <div className="w-full h-48 bg-gray-200 overflow-hidden flex-shrink-0">
           <img
             className="w-full h-full object-cover"
             src={imgURL}
@@ -26,15 +28,13 @@ export default function Card({ name, url, description, imgURL}: CardProps){
                 name: name,
                 errorEvent: e
               });
-              // Show a placeholder instead of hiding
-              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2Y3ZjdmNyIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTJweCIgZmlsbD0iIzk5OTk5OSI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==';
             }}
           />
         </div>
       )}
       
-      <div className="px-6 py-4">
-        <div className="flex items-center justify-between mb-2">
+      <div className="px-6 py-4 flex-1 flex flex-col">
+        <div className="flex items-start justify-between mb-2">
           <h3 className="font-bold text-xl text-gray-800 flex-1 mr-2">
             {name}
           </h3>
@@ -43,8 +43,8 @@ export default function Card({ name, url, description, imgURL}: CardProps){
             onClick={() => window.open(url, '_blank', 'noopener,noreferrer')} />
           )}
         </div>
-        <p className="text-gray-600 text-sm leading-relaxed mb-3">
-          {description}
+        <p className="text-gray-600 text-sm leading-relaxed flex-1">
+          {truncateDescription(description)}
         </p>
       </div>
     </div>

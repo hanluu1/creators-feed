@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import AddCreators from './app/add-your-creator/page'
 import AllCreators from './app/your-creator-list/page'
-
+import CreatorsInfo from './app/creators-info/page'
 function App() {
   return (
     <>
@@ -44,6 +44,7 @@ function App() {
         } />
         <Route path="/add-your-creator" element={<AddCreators />} />
         <Route path="/your-creator-list" element={<AllCreators />} />
+        <Route path="/creators-info/:id" element={<CreatorsInfo />} />
       </Routes>
     </>
   )
