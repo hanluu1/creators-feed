@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../lib/client";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { useParams } from "react-router-dom";
+import { PencilIcon } from "@heroicons/react/16/solid";
 
 interface Creator {
   id: number;
@@ -28,7 +29,7 @@ export default function CreatorsInfo() {
                     .from('creators')
                     .select('*')
                     .eq('id', id)
-                    .single(); // Get single record instead of array
+                    .single(); 
                     
                 if (error) {
                     console.error('Error fetching creator:', error);
@@ -46,7 +47,7 @@ export default function CreatorsInfo() {
         };
 
         fetchCreator();
-    }, [id]); // Add id to dependency array 
+    }, [id]);
 
     if (loading) {
         return (
@@ -81,7 +82,7 @@ export default function CreatorsInfo() {
                     </div>
                 ) : (
                     <div className="flex flex-col bg-white rounded-xl shadow-2xl overflow-hidden">
-                        <div className="flex flex-row mx-4 mt-6">
+                        <div className="flex flex-row mx-6 mt-6">
                             <div className="flex">
                                 {creator.imgURL ? (
                                     <img
@@ -100,10 +101,18 @@ export default function CreatorsInfo() {
                                 )}
                             </div>
 
-                            <div className="flex flex-col mx-4">
-                                <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-                                    {creator.name}
+                            <div className="flex flex-col ml-4 w-full">
+                                 <div className="flex flex-row justify-between items-start w-full">
+                                    <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                                        {creator.name}
+                                    </div>
+                                    <a href={`/edit-creators/${creator.id}`}>
+                                        <PencilIcon 
+                                            className="h-8 w-8 text-gray-400 hover:text-gray-600 cursor-pointer" 
+                                        />
+                                    </a>
                                 </div>
+                                
                                 
                                 {creator.url && (
                                     <div className="flex flex-row">
@@ -130,13 +139,14 @@ export default function CreatorsInfo() {
 
                             </div>
                         </div>
-                        <div className="mx-4 my-6">
+                        <div className="mx-6 my-6 flex gap-4">
                             <a 
                                 href="/your-creator-list"
                                 className="inline-flex items-center bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-200"
                             >
-                            Back to Creator List
+                                Back to Creator List
                             </a>
+                          
                         </div>
                         
                     </div>

@@ -42,7 +42,7 @@ export default function AllCreators() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gray-100 py-12 px-4">
+            <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <h1 className="text-4xl font-bold text-gray-900 mb-8">Your Creator List</h1>
                     <p className="text-gray-600">Loading your creators list...</p>
@@ -52,7 +52,7 @@ export default function AllCreators() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 py-12 px-4">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
             <div className="max-w-6xl mx-auto">
                 <h1 className="text-4xl font-bold text-gray-900 text-center mb-4">
                     Your Creator List

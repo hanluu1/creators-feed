@@ -42,7 +42,7 @@ export default function AddCreators() {
     };
             
     return (
-        <div className="min-h-screen bg-gray-100 py-12 px-4">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-12 px-4">
             <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">Add New Creator</h2>
                 <form onSubmit={addCreators} className="space-y-4">
