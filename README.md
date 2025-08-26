@@ -35,6 +35,6 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='./src/assets/creatorwalkthru.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+👉🏿<img src='./src/assets/creatorwalkthru1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with Chrome capture
